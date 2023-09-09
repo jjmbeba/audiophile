@@ -29,7 +29,7 @@ const Navbar = ({ className }: Props) => {
       className={cn(`text-[0.8125rem] leading-[1.5625rem] tracking-[2px] font-bold items-center gap-[2.125rem] ${className}`)}
     >
       {links.map(({ title, link }) => (
-        <Link href={link}>
+        <Link href={link} key={title}>
           <li className="text-white hover:text-[#D87D4A]">{title}</li>
         </Link>
       ))}
