@@ -25,14 +25,14 @@ const Products = (props: Props) => {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <Button className="mt-6" background={"black"} />
+          <Button link="/speakers/zx9-speaker" className="mt-6" background={"black"} />
         </div>
       </div>
       <div className="relative mt-6 pl-6 md:pl-[3.97rem] lg:pl-[6rem] bg-zx7-mobile md:bg-zx7-tablet lg:bg-zx7-desktop bg-cover bg-center py-[6rem] rounded-[0.5rem] bg-[#F1F1F1]">
         <h3 className="text-[1.75rem] leading-normal tracking-[0.125rem] font-bold z-10 relative">
           ZX7 SPEAKER
         </h3>
-        <Button className="mt-8 z-10 relative" background={"transparent"} />
+        <Button link="/speakers/zx7-speaker" className="mt-8 z-10 relative" background={"transparent"} />
       </div>
       <div className="mt-6 md:mt-8 md:flex items-center justify-between ">
         <Image className="rounded-[0.5rem] md:hidden" src={YX1Mobile} alt="YX1-Mobile" />
@@ -42,7 +42,7 @@ const Products = (props: Props) => {
           <h3 className="text-[1.75rem] leading-normal tracking-[0.125rem] font-bold z-10 relative">
             YX1 EARPHONES
           </h3>
-          <Button className="mt-8 z-10 relative" background={"transparent"} />
+          <Button link="/earphones/yx1-earphones" className="mt-8 z-10 relative" background={"transparent"} />
         </div>
       </div>
     </div>

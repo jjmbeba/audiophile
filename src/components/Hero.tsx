@@ -16,7 +16,7 @@ const Hero = (props: Props) => {
         Experience natural, lifelike audio and exceptional build quality made
         for the passionate music enthusiast.
       </p>
-      <Button background={'orange'} className="mt-7 md:mt-10"/>
+      <Button link="/headphones/xx99-mark-two-headphones" background={'orange'} className="mt-7 md:mt-10"/>
     </div>
   );
 };
