@@ -15,7 +15,7 @@ const Provider = ({children}:Props) => {
     const [trpcClient] = useState(() => trpc.createClient({
         links:[
             httpBatchLink({
-                url:'http://localhost:3000/api/trpc'
+                url:`${process.env.NEXT_URL}/api/trpc`
             })
         ]
     }))
