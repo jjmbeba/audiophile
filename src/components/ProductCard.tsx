@@ -2,7 +2,6 @@
 
 import React,{HTMLProps} from "react";
 import Image, { StaticImageData } from "next/image";
-import TestImage from "@/public/shared/desktop/image-xx99-mark-two-headphones.jpg";
 import Button from "./Button";
 import { usePathname } from "next/navigation";
 
