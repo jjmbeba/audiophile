@@ -1,16 +1,25 @@
 "use client";
-import { useRouter } from 'next/navigation';
-import React from 'react'
+import { useRouter } from "next/navigation";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const GoBackButton = (props: Props) => {
-
   const router = useRouter();
 
-  return (
-    <span onClick={() => router.back()} className='text-[0.9375rem] font-medium leading-[1.5625rem] opacity-50 cursor-pointer'>Go Back</span>
-  )
-}
+  const handlePreviousNavigation = () => {
+    router.back();
+  };
 
-export default GoBackButton
+  return (
+    <button
+      type="button"
+      onClick={handlePreviousNavigation}
+      className="text-[0.9375rem] font-medium leading-[1.5625rem] opacity-50 cursor-pointer"
+    >
+      Go Back
+    </button>
+  );
+};
+
+export default GoBackButton;

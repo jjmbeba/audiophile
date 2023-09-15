@@ -12,7 +12,6 @@ type Props = {
 
 const page = async ({params}: Props) => {
 
-    console.log(params.slug)
     const product = await serverClient.getHeadphoneBySlug(params.slug)
     console.log(product)
 

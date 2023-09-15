@@ -15,10 +15,10 @@ const HomeBackground = (props: Props) => {
 
   return (
     <>
-      <motion.div variants={{
+      {/* <motion.div variants={{
         open:{opacity:1},
         close:{opacity:0}
-      }} animate={menuState ? 'open' : 'close'} initial={{opacity:0}} className="absolute top-0 left-0 bottom-0 w-screen bg-black/40 z-10 pointer-events-none" />
+      }} animate={menuState ? 'open' : 'close'} initial={{opacity:0}} className="absolute top-0 left-0 bottom-0 w-screen bg-black/40 z-10 pointer-events-none" /> */}
       <Image
         className="absolute top-0 md:hidden"
         src={HeroMobile}

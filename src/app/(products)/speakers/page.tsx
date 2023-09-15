@@ -13,7 +13,7 @@ const page = async (props: Props) => {
 
   return (
     <div>
-      <ProductTitle title="headphones" />
+      <ProductTitle title="speakers" />
       <div className="mt-8 md:mt-[7.5rem] flex flex-col gap-[7.5rem] md:gap-40">
         {
           speakers.map(({name,description,slug, image, id}) => (

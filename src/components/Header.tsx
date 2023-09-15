@@ -78,7 +78,7 @@ const Header = ({ className }: Props) => {
         }}
         initial={{opacity:0}}
         animate={menuState ? "open" : "close"}
-        className="absolute bottom-[0rem] left-0 md:-left-10 w-full bg-white lg:hidden"
+        className={`absolute bottom-[0rem] left-0 md:-left-10 w-full bg-white lg:hidden ${!menuState && 'hidden'}`}
       >
         <div className="z-10 relative left-0">
         <Categories className="pt-[5.25rem] absolute top-0 w-full bg-white rounded-b-[0.5rem] md:w-screen"/>
