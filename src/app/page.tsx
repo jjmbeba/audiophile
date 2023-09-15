@@ -6,16 +6,17 @@ import Products from "../components/Products";
 import About from "../components/About";
 
 export default function Home() {
+  
   return (
-    <main>
+    <main className="relative overflow-x-hidden">
       <Header />
       <div>
         <HomeBackground />
         <Hero />
       </div>
-      <Categories/>
-      <Products/>
-      <About/>
+      <Categories />
+      <Products />
+      <About />
     </main>
   );
 }

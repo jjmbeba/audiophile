@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 
 interface Props extends HTMLProps<HTMLDivElement> {
   title:string;
-  image:StaticImageData;
   description:string;
   slug:string;
   images:{
@@ -17,7 +16,7 @@ interface Props extends HTMLProps<HTMLDivElement> {
   };
 };
 
-const ProductCard = ({title, image, description, slug, images}: Props) => {
+const ProductCard = ({title, description, slug, images}: Props) => {
 
   const pathname = usePathname()
 
