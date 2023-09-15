@@ -17,7 +17,7 @@ const page = async (props: Props) => {
       <div className="mt-8 md:mt-[7.5rem] flex flex-col gap-[7.5rem] md:gap-40">
         {
           earphones.map(({name,description,slug, image, id}) => (
-            <ProductCard key={id} className="even:border even:border-black" title={name} description={description} image={TestImage} slug={slug} images={image}/>
+            <ProductCard key={id} className="even:border even:border-black" title={name} description={description} images={image} slug={slug}/>
           ))
         }
       </div>
