@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import AddToCart from "./AddToCart";
 
 type Props = {
@@ -36,7 +35,7 @@ const SpecificProductCard = ({id, name, images, description, price }: Props) => 
           {description}
         </p>
         <p className="text-[1.125rem] leading-normal tracking-[0.08038rem] font-bold">
-          ${price}
+          ${price.toLocaleString('en-US')}
         </p>
         <AddToCart/>
       </div>
