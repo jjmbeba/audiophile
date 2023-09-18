@@ -18,7 +18,7 @@ const page = async ({ params }: Props) => {
   if (!product) return;
   
   return (
-    <div className="px-6 pt-4">
+    <div className="px-6 md:px-10 pt-4 md:pt-8">
       <GoBackButton />
       <div>
         <SpecificProductCard
@@ -27,6 +27,7 @@ const page = async ({ params }: Props) => {
           images={product.image}
           description={product.description}
           price={product.price}
+          isNew={product.new}
           />
         <ProductFeatures features={product.features}/>
         <InTheBox includes={product.includes}/>
