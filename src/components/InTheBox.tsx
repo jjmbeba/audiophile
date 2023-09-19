@@ -9,7 +9,7 @@ type Props = {
 
 const InTheBox = ({ includes }: Props) => {
   return (
-    <div className="mt-[5.5rem] md:mt-[7.5rem] md:flex items-start gap-[10.625rem]">
+    <div className="mt-[5.5rem] md:mt-[7.5rem] md:flex lg:flex-col items-start gap-[10.625rem] lg:gap-8">
       <h2 className="text-[1.5rem] md:text-[2rem] leading-[2.25rem] tracking-[0.05356rem] md:tracking-[0.07144rem] font-bold">
         IN THE BOX
       </h2>

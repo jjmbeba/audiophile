@@ -16,9 +16,9 @@ const page = async ({ params }: Props) => {
   const product = await serverClient.getHeadphoneBySlug(params.slug);
 
   if (!product) return;
-  
+
   return (
-    <div className="px-6 md:px-10 pt-4 md:pt-8">
+    <div className="px-6 md:px-10 lg:px-[10.31rem] pt-4 md:pt-8 lg:pt-[4.94rem] ">
       <GoBackButton />
       <div>
         <SpecificProductCard
@@ -28,11 +28,13 @@ const page = async ({ params }: Props) => {
           description={product.description}
           price={product.price}
           isNew={product.new}
-          />
-        <ProductFeatures features={product.features}/>
-        <InTheBox includes={product.includes}/>
-        <Gallery gallery={product.gallery}/>
-        <Others products={product.others}/>
+        />
+        <div className="lg:flex items-start gap-[6rem]">
+          <ProductFeatures features={product.features} />
+          <InTheBox includes={product.includes} />
+        </div>
+        <Gallery gallery={product.gallery} />
+        <Others products={product.others} />
       </div>
     </div>
   );

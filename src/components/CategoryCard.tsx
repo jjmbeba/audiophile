@@ -19,7 +19,7 @@ const CategoryCard = ({ name, src, link }: Props) => {
           alt="category-thumbnail"
         />
       </div>
-      <div className="bg-[#F1F1F1] pb-[1.37rem] rounded-[0.5rem] md:px-16 lg:px-[7.78rem]">
+      <div className="bg-[#F1F1F1] pb-[1.37rem] rounded-[0.5rem] md:px-16 lg:px-[6.31rem]">
         <h3 className="pt-[5.5rem] lg:pt-[7.25rem] text-[0.9375rem] lg:text-[1.125rem] leading-normal tracking-[0.06694rem] lg:tracking-[0.08038rem]">
           <Link href={link}>{name}</Link>
         </h3>

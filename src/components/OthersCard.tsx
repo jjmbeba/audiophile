@@ -13,10 +13,9 @@ type Props = {
 };
 
 const OthersCard = ({ name, slug, image }: Props) => {
-    console.log(slug)
   return (
     <div className="flex flex-col items-center gap-8 md:gap-0">
-      <div className="relative w-[20.4375rem] md:w-[13.9375rem] h-[7.5rem] md:h-[19.875rem]">
+      <div className="relative w-[20.4375rem] md:w-[13.9375rem] lg:w-[19.2rem] h-[7.5rem] md:h-[19.875rem]">
         <Image
           className="rounded-[0.5rem] md:hidden"
           fill
@@ -24,9 +23,15 @@ const OthersCard = ({ name, slug, image }: Props) => {
           alt={name}
         />
         <Image
-          className="rounded-[0.5rem] hidden md:block"
+          className="rounded-[0.5rem] hidden md:block lg:hidden"
           fill
           src={image.tablet}
+          alt={name}
+        />
+        <Image
+          className="rounded-[0.5rem] hidden lg:block"
+          fill
+          src={image.desktop}
           alt={name}
         />
       </div>
