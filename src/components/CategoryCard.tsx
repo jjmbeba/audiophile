@@ -1,7 +1,11 @@
+"use client";
+
 import Image, { StaticImageData } from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import Arrow from "@/public/arrow-right.svg";
 import Link from "next/link";
+import { useMenuStore } from "../store/menuStore";
+import { usePathname } from "next/navigation";
 
 type Props = {
   name: string;
@@ -10,6 +14,14 @@ type Props = {
 };
 
 const CategoryCard = ({ name, src, link }: Props) => {
+  const [closeMenu] = useMenuStore((state) => [state.closeMenu]);
+
+  const pathName = usePathname();
+
+  useEffect(() => {
+    closeMenu();
+  }, [pathName]);
+
   return (
     <div className="relative text-center font-bold uppercase">
       <div className="flex items-center justify-center">
@@ -25,9 +37,9 @@ const CategoryCard = ({ name, src, link }: Props) => {
         </h3>
         <div className="mt-4 flex items-center justify-center gap-[0.83rem] cursor-pointer">
           <Link href={link}>
-          <h4 className="opacity-50 text-[0.8125rem] leading-normal tracking-[0.0625rem]">
-            shop
-          </h4>
+            <h4 className="opacity-50 text-[0.8125rem] leading-normal tracking-[0.0625rem]">
+              shop
+            </h4>
           </Link>
           <Link href={link}>
             <Image src={Arrow} alt="arrow-right" />

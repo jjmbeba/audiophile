@@ -15,7 +15,7 @@ export const appRouter = router({
             }
         })
     }),
-    getHeadphoneBySlug:publicProcedure.input(z.string()).query(async(opts) => {
+    getProductBySlug:publicProcedure.input(z.string()).query(async(opts) => {
         const {input} = opts;
 
         return await prisma.products.findFirst({

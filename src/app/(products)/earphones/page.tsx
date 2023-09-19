@@ -1,7 +1,5 @@
 import ProductCard from "@/src/components/ProductCard";
 import ProductTitle from "@/src/components/ProductTitle";
-import React from "react";
-import TestImage from "@/public/shared/desktop/image-xx99-mark-two-headphones.jpg";
 import { serverClient } from "../../_trpc/serverClient";
 
 

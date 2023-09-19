@@ -84,9 +84,6 @@ const Header = ({ className }: Props) => {
         <Categories className="pt-[5.25rem] absolute top-0 w-full bg-white rounded-b-[0.5rem] md:w-screen"/>
         </div>
       </motion.div>
-      {/* <div className="absolute top-0 w-full left-0">
-      <Categories className="mt-[5.25rem]"/>
-      </div> */}
     </div>
   );
 };

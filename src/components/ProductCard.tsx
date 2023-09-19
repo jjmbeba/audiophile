@@ -19,6 +19,7 @@ interface Props extends HTMLProps<HTMLDivElement> {
 const ProductCard = ({title, description, slug, images}: Props) => {
 
   const pathname = usePathname()
+  console.log(pathname) 
 
   return (
     <div className="px-6 md:px-10 lg:px-[10.31rem] lg:flex even:flex-row-reverse items-center gap-[7.81rem]">
