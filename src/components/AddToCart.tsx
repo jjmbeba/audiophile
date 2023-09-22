@@ -24,9 +24,13 @@ const AddToCart = ({ quantity, setQuantity, id, name, price }: Props) => {
     setQuantity((prev) => prev + 1);
   };
 
-  const [addToCart] = useCartStore((state) => [state.addToCart]);
+  const [cartItems, addToCart, increaseItemQuantityBy] = useCartStore((state) => [
+    state.cartItems,
+    state.addToCart,
+    state.increaseItemQuantityBy
+  ]);
 
-  const {toast} = useToast();
+  const { toast } = useToast();
 
   return (
     <div className="flex items-center gap-4 z-10">
@@ -47,16 +51,22 @@ const AddToCart = ({ quantity, setQuantity, id, name, price }: Props) => {
       </div>
       <AddToCartButton
         onClick={() => {
-          addToCart({
-            id,
-            name,
-            price,
-            quantity
-          })
+          const foundProduct = cartItems.find((item) => item.id === id);
+
+          if (foundProduct) {
+            increaseItemQuantityBy(id, quantity)
+          } else {
+            addToCart({
+              id,
+              name,
+              price,
+              quantity,
+            });
+          }
+
           toast({
-            title:'Added item to cart',
-            description:'Friday, February 10, 2023 at 5:57 PM'
-          })
+            title: `Added ${quantity} ${name} to cart`,
+          });
         }}
         type="button"
         background={"orange"}

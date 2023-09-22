@@ -6,6 +6,7 @@ interface CartState {
   removeAllCartItems: () => void;
   increaseItemQuantity: (itemId: string) => void;
   decreaseItemQuantity: (itemId: string) => void;
+  increaseItemQuantityBy: (itemId: string, by: number) => void;
 }
 
 export interface CartItem {
@@ -38,11 +39,17 @@ export const useCartStore = create<CartState>()((set) => ({
         item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
       ),
     })),
+  increaseItemQuantityBy: (itemId, by) => {
+    set((state) => ({
+      cartItems: state.cartItems.map((item) =>
+        item.id === itemId ? { ...item, quantity: item.quantity + by } : item
+      ),
+    }));
+  },
   decreaseItemQuantity: (itemId: string) =>
     set((state) => ({
       cartItems: state.cartItems.map((item) =>
         item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item
       ),
     })),
-
 }));

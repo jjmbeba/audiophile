@@ -31,7 +31,10 @@ const Header = ({ className }: Props) => {
     state.toggleMenuState,
   ]);
 
-  const [cartItems, removeAllCartItems] = useCartStore((state) => [state.cartItems, state.removeAllCartItems])
+  const [cartItems, removeAllCartItems] = useCartStore((state) => [
+    state.cartItems,
+    state.removeAllCartItems,
+  ]);
 
   const displayVariants = {
     open: { opacity: 0 },
@@ -90,16 +93,21 @@ const Header = ({ className }: Props) => {
         <DialogTrigger>
           <Image src={Cart} alt="cart-icon" />
         </DialogTrigger>
-        <DialogContent className="max-w-[20.4375rem]">
+        <DialogContent className="max-w-[20.4375rem] lg:max-w-[23.5625rem]">
           <DialogHeader>
             <DialogTitle className="flex items-center justify-between">
               <span className="text-[1.125rem] leading-normal tracking-[0.08038rem] uppercase font-bold">
                 Cart ({cartItems.length})
               </span>
-              <span onClick={removeAllCartItems} className="text-[0.9375rem] leading-[1.5625rem] underline opacity-50 font-medium">Remove all</span>
+              <span
+                onClick={removeAllCartItems}
+                className="text-[0.9375rem] leading-[1.5625rem] underline opacity-50 font-medium hover:text-[#D87D4A] cursor-pointer"
+              >
+                Remove all
+              </span>
             </DialogTitle>
             <DialogDescription>
-              <CartItems/>
+              <CartItems />
             </DialogDescription>
           </DialogHeader>
         </DialogContent>

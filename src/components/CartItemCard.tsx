@@ -10,35 +10,38 @@ type Props = {
 };
 
 const CartItemCard = ({ id, quantity }: Props) => {
-  const [increaseQuantity, decreaseQuanity] = useCartStore((state) => [state.increaseItemQuantity, state.decreaseItemQuantity])
+  const [increaseQuantity, decreaseQuanity] = useCartStore((state) => [
+    state.increaseItemQuantity,
+    state.decreaseItemQuantity,
+  ]);
   const { data: product, isLoading } = trpc.getProductById.useQuery(id);
-
-  if (!product) return;
 
   const removeLastWord = (str: string) => {
     return str.substring(0, str.lastIndexOf(" "));
   };
 
   const handleDecrease = () => {
-    if(quantity>1){
-        decreaseQuanity(id)
+    if (quantity > 1) {
+      decreaseQuanity(id);
     }
-  }
+  };
 
-  if(isLoading){
+  if (isLoading) {
     return (
-        <div className="flex w-full gap-4">
-            <Skeleton className="rounded-[0.5rem] w-16 h-16"/>
-            <div className="mt-2 flex flex-col items-start flex-1 gap-4">
-                <Skeleton className="h-3 w-3/5"/>
-                <Skeleton className="h-3 w-4/5"/>
-            </div>
+      <div className="flex w-full gap-4">
+        <Skeleton className="rounded-[0.5rem] w-16 h-16" />
+        <div className="mt-2 flex flex-col items-start flex-1 gap-4">
+          <Skeleton className="h-3 w-3/5" />
+          <Skeleton className="h-3 w-4/5" />
         </div>
-    )
+      </div>
+    );
+  } else if (!product) {
+    return;
   }
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between md:gap-[3.87rem]">
       <div className="flex items-center">
         <div className="relative w-16 h-16 mr-4">
           <Image
@@ -52,7 +55,9 @@ const CartItemCard = ({ id, quantity }: Props) => {
           <span className="text-[0.9375rem] leading-[1.5625rem] font-bold text-black">
             {removeLastWord(product.name)}
           </span>
-          <span>${product.price.toLocaleString("en-US")}</span>
+          <span className="text-[0.875rem] leading-[1.5625rem] text-black/50 font-bold">
+            ${product.price.toLocaleString("en-US")}
+          </span>
         </div>
       </div>
       <div className="flex items-center text-[0.8125rem] leading-normal tracking-[0.0625rem] font-bold bg-[#F1F1F1]">
