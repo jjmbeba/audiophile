@@ -2,6 +2,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import Link from "next/link";
 import React, { HTMLProps } from "react";
 import { cn } from "../lib/utils";
+import { useToast } from "./ui/use-toast";
 
 interface Props extends HTMLProps<HTMLButtonElement>, VariantProps<typeof buttonVariants> {}
 
@@ -15,11 +16,15 @@ const buttonVariants = cva('uppercase px-[1.875rem] py-[0.9375rem] text-[0.8125r
     }
 })
 
-const AddToCartButton = ({ className, background, disabled }: Props) => {
+const AddToCartButton = ({ className, background, disabled, type, ...props }: Props) => {
+
+  const {toast} = useToast()
+
   return (
       <button
       className={cn(buttonVariants({background, className}))}
       disabled={disabled}
+      {...props}
       >
         add to cart
       </button>

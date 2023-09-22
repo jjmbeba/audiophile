@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import Footer from "../components/Footer";
 import Provider from "./_trpc/Provider";
+import { NextUiProvider } from "../NextUIProvider";
+import { Toaster } from "../components/ui/toaster";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -19,8 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={manrope.className}>
-        <Provider>{children}</Provider>
-        <Footer />
+        <NextUiProvider>
+          <Provider>{children}</Provider>
+          <Footer />
+          <Toaster/>
+        </NextUiProvider>
       </body>
     </html>
   );

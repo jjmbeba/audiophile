@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import AddToCart from "./AddToCart";
+import {useState, useEffect} from 'react'
 
 type Props = {
   name: string;
@@ -22,6 +25,14 @@ const SpecificProductCard = ({
   isNew,
   price,
 }: Props) => {
+
+  const [quantity, setQuantity] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(price);
+
+  useEffect(() => {
+    setTotalPrice(quantity * price)
+  },[quantity, price])
+
   return (
     <div className="mt-6 lg:mt-14 md:flex items-center gap-[4.5rem] lg:gap-[6.81rem]">
       <div className="overflow-x-hidden relative w-[20rem] md:w-[17.5625rem] lg:w-[33.75rem] h-[20rem] md:h-[30rem] lg:h-[35rem]">
@@ -57,9 +68,9 @@ const SpecificProductCard = ({
           {description}
         </p>
         <p className="text-[1.125rem] leading-normal tracking-[0.08038rem] font-bold">
-          ${price.toLocaleString("en-US")}
+          ${totalPrice.toLocaleString("en-US")}
         </p>
-        <AddToCart />
+        <AddToCart id={id} price={price} name={name} quantity={quantity} setQuantity={setQuantity}/>
       </div>
     </div>
   );

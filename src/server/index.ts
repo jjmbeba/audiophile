@@ -24,6 +24,15 @@ export const appRouter = router({
             }
         })
     }),
+    getProductById:publicProcedure.input(z.string()).query(async(opts) => {
+        const {input} = opts;
+
+        return await prisma.products.findUnique({
+            where:{
+                id:input
+            }
+        })
+    }),
     getSpeakers:publicProcedure.query(async() => {
         return await prisma.products.findMany({
             where:{
