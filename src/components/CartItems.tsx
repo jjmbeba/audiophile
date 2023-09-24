@@ -1,6 +1,7 @@
 import React from "react";
 import { useCartStore } from "../store/cartStore";
 import CartItemCard from "./CartItemCard";
+import Link from "next/link";
 
 type Props = {};
 
@@ -25,9 +26,11 @@ const CartItems = (props: Props) => {
           ${totalPrice}
         </span>
       </div>
-      <div className="w-full bg-[#D87D4A] hover:bg-[#FBAF85] cursor-pointer py-[0.94rem] text-[0.8125rem] text-center leading-normal tracking-[0.0625rem] font-bold text-white">
-        CHECKOUT
-      </div>
+      <Link href={'/checkout'}>
+        <div className="w-full bg-[#D87D4A] hover:bg-[#FBAF85] cursor-pointer py-[0.94rem] text-[0.8125rem] text-center leading-normal tracking-[0.0625rem] font-bold text-white">
+          CHECKOUT
+        </div>
+      </Link>
     </div>
   );
 };

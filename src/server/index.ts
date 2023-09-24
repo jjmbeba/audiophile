@@ -1,6 +1,7 @@
 import prisma from "@/prisma";
 import { publicProcedure, router } from "./trpc";
 import {z} from 'zod'
+import axios from 'axios'
 
 export const appRouter = router({
     getAllProducts:publicProcedure.query(async() => {
@@ -51,6 +52,13 @@ export const appRouter = router({
             }
         })
     }),
+    getAllCountries:publicProcedure.query(async() => {
+        const countries:Territory[] = await axios.get(`https://restcountries.com/v3.1/all`).then((response) => response.data).catch((error) => {
+            throw new Error(error)
+        })
+
+        return countries;
+    })
 })
 
 export type AppRouter = typeof appRouter
